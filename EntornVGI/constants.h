@@ -24,7 +24,7 @@
 
 //-------------- VGI: Tipus d'Objectes
 #define ARC 'a'
-#define CAMIO 'm'
+#define CAMIO 'C'
 #define CILINDRE 'y'
 #define CUB 'c'
 #define C_BEZIER '2'

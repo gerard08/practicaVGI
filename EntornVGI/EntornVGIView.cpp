@@ -197,6 +197,8 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 		ON_UPDATE_COMMAND_UI(ID_PROJECCIO_ORTOGRAFICA, &CEntornVGIView::OnUpdateProjeccioOrtografica)
 		ON_COMMAND(ID_OBJECTE_POP, &CEntornVGIView::OnObjectePop)
 		ON_UPDATE_COMMAND_UI(ID_OBJECTE_POP, &CEntornVGIView::OnUpdateObjectePop)
+		ON_COMMAND(ID_OBJECTE_CAMI32875, &CEntornVGIView::OnObjecteCamio)
+		ON_UPDATE_COMMAND_UI(ID_OBJECTE_CAMI32875, &CEntornVGIView::OnUpdateObjecteCamio)
 		END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -4600,5 +4602,23 @@ void CEntornVGIView::OnUpdateObjectePop(CCmdUI* pCmdUI)
 {
 	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
 	if (objecte == PULPITO) pCmdUI->SetCheck(1);
+	else pCmdUI->SetCheck(0);
+}
+
+
+void CEntornVGIView::OnObjecteCamio()
+{
+	// TODO: Agregue aquí su código de controlador de comandos
+	objecte = CAMIO;
+
+	InvalidateRect(NULL, false);
+}
+
+
+void CEntornVGIView::OnUpdateObjecteCamio(CCmdUI* pCmdUI)
+{
+	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
+		// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
+	if (objecte == CAMIO) pCmdUI->SetCheck(1);
 	else pCmdUI->SetCheck(0);
 }
