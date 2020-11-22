@@ -195,6 +195,8 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	ON_UPDATE_COMMAND_UI(ID_OBJECTE_ARC, &CEntornVGIView::OnUpdateObjecteArc)
 		ON_COMMAND(ID_PROJECCIO_ORTOGRAFICA, &CEntornVGIView::OnProjeccioOrtografica)
 		ON_UPDATE_COMMAND_UI(ID_PROJECCIO_ORTOGRAFICA, &CEntornVGIView::OnUpdateProjeccioOrtografica)
+		ON_COMMAND(ID_OBJECTE_POP, &CEntornVGIView::OnObjectePop)
+		ON_UPDATE_COMMAND_UI(ID_OBJECTE_POP, &CEntornVGIView::OnUpdateObjectePop)
 		END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -895,7 +897,7 @@ void CEntornVGIView::OnPaint()
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geometriques segons persiana Transformacio i configurar objectes
-		// glScalef();			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
+		glScalef(mida, mida, mida);			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
 		dibuixa_Escena();		// Dibuix geometria de l'escena amb comandes GL.
 		glPopMatrix();
 	
@@ -909,7 +911,7 @@ void CEntornVGIView::OnPaint()
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geometriques segons persiana Transformacio i configurar objectes
-		// glScalef();			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
+		glScalef(mida, mida, mida);			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
 		dibuixa_Escena();		// Dibuix geometria de l'escena amb comandes GL.
 		glPopMatrix();
 		
@@ -922,7 +924,7 @@ void CEntornVGIView::OnPaint()
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geom?triques segons persiana Transformacio i configurar objectes
-		//glScalef();			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
+		glScalef(mida, mida, mida);			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
 		dibuixa_Escena();		// Dibuix geometria de l'escena amb comandes GL.
 	  glPopMatrix();
 
@@ -935,7 +937,7 @@ void CEntornVGIView::OnPaint()
 		// Dibuix de l'Objecte o l'Escena
 		glPushMatrix();
 		configura_Escena();     // Aplicar Transformacions Geom?triques segons persiana Transformacio i configurar objectes
-		  // glScalef();			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
+		glScalef(mida, mida, mida);			// Escalat d'objectes, per adequar-los a les vistes ortogràfiques (Pràctica 2)
 		dibuixa_Escena();		// Dibuix geometria de l'escena amb comandes GL.
 		glPopMatrix();
 	
@@ -3183,7 +3185,7 @@ void CEntornVGIView::OnObjecteCub()
 
 //  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
 //	Canviar l'escala per a centrar la vista (Ortogràfica)
-
+	
 
 // Crida a OnPaint() per redibuixar l'escena
 	InvalidateRect(NULL, false);
@@ -3206,6 +3208,13 @@ void CEntornVGIView::OnObjecteEsfera()
 //  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
 //	Canviar l'escala per a centrar la vista (Ortogràfica)
 
+	float d = (7 / 4) * sqrt(3);
+	//float d = sqrt(2 ^ 2 + 2 ^ 2);
+
+	float D = 5;
+
+	mida =  D/d;
+
 // Crida a OnPaint() per redibuixar l'escena
 	InvalidateRect(NULL, false);
 }
@@ -3225,6 +3234,14 @@ void CEntornVGIView::OnObjecteTetera()
 
 //  Modificar R per centrar la Vista a la mida de l'objecte (Perspectiva)
 //	Canviar l'escala per a centrar la vista (Ortogràfica)
+	float d = (7 / 4) * sqrt(3);
+	//float d = sqrt(2 ^ 2 + 2 ^ 2);
+
+	
+
+	float D = sqrt(1 * w + 1 * h + 1 * h);
+	
+	mida = d/D;
 
 // Crida a OnPaint() per redibuixar l'escena
 	InvalidateRect(NULL, false);
@@ -4566,5 +4583,22 @@ void CEntornVGIView::OnProjeccioOrtografica()
 void CEntornVGIView::OnUpdateProjeccioOrtografica(CCmdUI* pCmdUI)
 {
 	if (projeccio == ORTO) pCmdUI->SetCheck(1);
+	else pCmdUI->SetCheck(0);
+}
+
+
+void CEntornVGIView::OnObjectePop()
+{
+	// TODO: Agregue aquí su código de controlador de comandos
+	objecte = PULPITO;
+
+	InvalidateRect(NULL, false);
+}
+
+
+void CEntornVGIView::OnUpdateObjectePop(CCmdUI* pCmdUI)
+{
+	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
+	if (objecte == PULPITO) pCmdUI->SetCheck(1);
 	else pCmdUI->SetCheck(0);
 }

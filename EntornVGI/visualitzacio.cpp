@@ -377,7 +377,8 @@ glm::mat4 Projeccio_Orto(int minx, int miny, GLsizei w, GLsizei h)
 
 	glViewport(minx, miny, w, w / A);
 	glScissor(minx, miny, w, h);
-	MatriuOrto = glm::ortho(-50.f, 50.f, float(-50.f / (A)), float(50 / (A)), -50.f, 50.f);
+	/*MatriuOrto = glm::ortho(-50.f, 50.f, float(-50.f / (A)), float(50 / (A)), -50.f, 50.f);*/
+	MatriuOrto = glm::ortho(-1.f, 1.f, float(-1.f / (A)), float(1 / (A)), -1.f, 1.f);
 
 	return MatriuOrto;
 

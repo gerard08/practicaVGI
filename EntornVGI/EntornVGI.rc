@@ -351,6 +351,8 @@ BEGIN
         MENUITEM "Tie",                         ID_OBJECTE_TIE, CHECKED
         MENUITEM "Matriu Primitives",           ID_OBJECTE_MATRIU_PRIMITIVES, CHECKED
         MENUITEM "Matriu Primitives VBO",       ID_OBJECTE_MATRIU_PRIMITIVES_VBO, CHECKED
+        MENUITEM "Camió",                       ID_OBJECTE_CAMI32875, CHECKED
+        MENUITEM "Pop",                         ID_OBJECTE_POP, CHECKED
     END
     POPUP "Transforma"
     BEGIN

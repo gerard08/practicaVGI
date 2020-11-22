@@ -37,6 +37,7 @@
 #define ICOSAEDRE 'i'
 #define MATRIUP 'M'
 #define MATRIUP_VBO 'm'
+#define PULPITO 'p'
 #define ROBOT 'u'
 #define TETERA 't'
 #define TEXTE_BITMAP 'B'

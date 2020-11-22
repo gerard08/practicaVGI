@@ -174,6 +174,9 @@ protected:
 // Implementación
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnObjectePop();
+	afx_msg void OnUpdateObjectePop(CCmdUI* pCmdUI);
 };
 
 CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)
@@ -218,6 +221,4 @@ void CEntornVGIApp::SaveCustomState()
 }
 
 // Controladores de mensaje de CEntornVGIApp
-
-
 

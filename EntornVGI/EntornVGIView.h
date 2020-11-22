@@ -410,6 +410,8 @@ public:
 	afx_msg void OnUpdateObjecteArc(CCmdUI* pCmdUI);
 	afx_msg void OnProjeccioOrtografica();
 	afx_msg void OnUpdateProjeccioOrtografica(CCmdUI* pCmdUI);
+	afx_msg void OnObjectePop();
+	afx_msg void OnUpdateObjectePop(CCmdUI* pCmdUI);
 };
 
 #ifndef _DEBUG  // Versión de depuración en EntornVGIView.cpp

@@ -196,13 +196,15 @@
 #define ID_PROJECCI32872                32872
 #define ID_PROJECCIO_ORTOGRAFICA        32873
 #define ID_PROJECCI32874                32874
+#define ID_OBJECTE_CAMI32875            32875
+#define ID_OBJECTE_POP                  32876
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        311
-#define _APS_NEXT_COMMAND_VALUE         32875
+#define _APS_NEXT_COMMAND_VALUE         32877
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
