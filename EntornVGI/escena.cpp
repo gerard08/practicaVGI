@@ -1309,14 +1309,21 @@ void Cabina(GLint shaderId, glm::mat4 MatriuVista, glm::mat4 MatriuTG, bool sw_m
 
 void pota(GLuint sh_programID, glm::mat4 MatriuVista, glm::mat4 MatriuTG, bool sw_mat[4], glm::mat4 ModelMatrix, glm::mat4 NormalMatrix, glm::mat4 TransMatrix, float angle, CColor c)
 {
+
+	//finestres
+	glPushMatrix();
+	//glClearColor(0.5, 1.0, 1.0, 0.5);
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	CColor a;
 	a.r = 0.5;
 	a.g = 1.0;
 	a.b = 1.0;
-	a.a = 0.5;
-	//finestres
-	glPushMatrix();
-	//glClearColor(0.5, 1.0, 1.0, 0.5);
+	a.a = 0.0;
+
+	
 	SeleccionaColor(sh_programID, a, sw_mat);
 
 	TransMatrix = glm::mat4(1.0);
@@ -1331,6 +1338,8 @@ void pota(GLuint sh_programID, glm::mat4 MatriuVista, glm::mat4 MatriuTG, bool s
 	glUniformMatrix4fv(glGetUniformLocation(sh_programID, "normalMatrix"), 1, GL_FALSE, &NormalMatrix[0][0]);
 
 	glutSolidSphere(1, 20, 20);
+
+	glDisable(GL_BLEND);
 	glPopMatrix();
 
 //braç de l'atraccio
