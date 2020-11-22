@@ -373,11 +373,11 @@ glm::mat4 Projeccio_Orto(int minx, int miny, GLsizei w, GLsizei h)
 	glm::mat4 MatriuOrto;
 
 	//V: aspect ratio desitjat :
-	float A = float(1920.f/1080.f);//fw / fh;
+	float A = float(2.1f);//fw / fh;
 
 	glViewport(minx, miny, w, w / A);
 	glScissor(minx, miny, w, h);
-	/*MatriuOrto = glm::ortho(-50.f, 50.f, float(-50.f / (A)), float(50 / (A)), -50.f, 50.f);*/
+	//MatriuOrto = glm::ortho(-50.f, 50.f, float(-50.f / (A)), float(50 / (A)), -50.f, 50.f);
 	MatriuOrto = glm::ortho(-1.f, 1.f, float(-1.f / (A)), float(1 / (A)), -1.f, 1.f);
 
 	return MatriuOrto;
@@ -426,7 +426,7 @@ glm::mat4 Vista_Ortografica(GLuint sh_programID, int prj,GLdouble Raux,CColor co
 			{
 				//posicio de la camera en coordenades mon
 				//ens posem 10 punts per sota de l'eix Z
-				glm::vec3 eye(0.f, 0.f, -15.f);
+				glm::vec3 eye(0.f, 0.f, -1.8f);
 
 				//punt on volem que miri la camera
 				//mirem cap al centre de coordenades
@@ -472,7 +472,7 @@ glm::mat4 Vista_Ortografica(GLuint sh_programID, int prj,GLdouble Raux,CColor co
 				{
 					//posicio de la camera en coordenades mon
 					//ens posem 10 punts per sota de l'eix Z
-					glm::vec3 eye(10.f, 10.f, 10.f);
+					glm::vec3 eye(1.5f, 1.5f, 1.5f);
 
 					//punt on volem que miri la camera
 					//mirem cap al centre de coordenades
@@ -510,7 +510,7 @@ glm::mat4 Vista_Ortografica(GLuint sh_programID, int prj,GLdouble Raux,CColor co
 			{
 				//posicio de la camera en coordenades mon
 				//ens posem 10 punts per sota de l'eix Z
-				glm::vec3 eye(15.f, 0.f, 0.f);
+				glm::vec3 eye(2.f, 0.f, 0.f);
 
 				//punt on volem que miri la camera
 				//mirem cap al centre de coordenades
@@ -548,7 +548,7 @@ glm::mat4 Vista_Ortografica(GLuint sh_programID, int prj,GLdouble Raux,CColor co
 			{
 				//posicio de la camera en coordenades mon
 				//ens posem 10 punts per sota de l'eix Z
-				glm::vec3 eyep(0.f, -15.f, 0.f);
+				glm::vec3 eyep(0.f, -2.f, 0.f);
 
 				//punt on volem que miri la camera
 				//mirem cap al centre de coordenades
@@ -569,6 +569,10 @@ glm::mat4 Vista_Ortografica(GLuint sh_programID, int prj,GLdouble Raux,CColor co
 	}
 
 
+	MatriuVista = glm::scale(MatriuVista, vec3(mida, mida, mida));
+	//glScalef(mida, 0, 0);
+	//glScalef(0, mida, 0);
+	//glScalef(0, 0, mida);
 
 
 // Pas Matriu a shader

@@ -454,6 +454,7 @@ void dibuixa(GLuint sh_programID, char obj, glm::mat4 MatriuVista, glm::mat4 Mat
 // Esfera
 	case ESFERA:	
 		//glPushMatrix();
+
 		  //glScaled(5.0,5.0,5.0);
 		ModelMatrix = glm::scale(MatriuTG, vec3(5.0f, 5.0f, 5.0f));
 		// Pas ModelView Matrix a shader
@@ -1433,8 +1434,22 @@ void pop(GLuint sh_programID, glm::mat4 MatriuVista, glm::mat4 MatriuTG, bool sw
 
 void camio(GLuint sh_programID, glm::mat4 MatriuVista, glm::mat4 MatriuTG, bool sw_mat[4])
 {
+
 	CColor col_object;
 	glm::mat4 TransMatrix(1.0), NormalMatrix(1.0), ModelMatrix(1.0);
+
+
+	//glPushMatrix();
+	//ModelMatrix = glm::scale(MatriuTG, vec3(2.0f / 0.16, 2.0f / 0.16, 2.0f / 0.16));
+	//// Pas ModelView Matrix a shader
+	//glUniformMatrix4fv(glGetUniformLocation(sh_programID, "modelMatrix"), 1, GL_FALSE, &ModelMatrix[0][0]);
+	//// Pas NormalMatrix a shader
+	//NormalMatrix = transpose(inverse(MatriuVista * ModelMatrix));
+	//glUniformMatrix4fv(glGetUniformLocation(sh_programID, "normalMatrix"), 1, GL_FALSE, &NormalMatrix[0][0]);
+	//glutSolidCube(1.0);
+	//glPopMatrix();
+
+
 
 	// Definir VAO del Cub
 	glutSolidCube_VAO(1.0);
